@@ -2,16 +2,18 @@ version: 0.2
 
 phases:
   install:
+    runtime-versions:
+      java: corretto21
     commands:
-      - echo Installing Maven...
+      - echo "Installing dependencies"
       - mvn --version
 
   build:
     commands:
-      - echo Building the project and skipping tests...
+      - echo "Building the Spring Boot application..."
       - mvn clean package -DskipTests=true
-      - echo "Listing contents of target directory:"
-      - ls -lh target/
+      - echo "Listing target folder"
+      - ls -alh target
 
 artifacts:
   files:
