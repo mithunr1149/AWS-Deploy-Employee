@@ -4,14 +4,11 @@ phases:
   install:
     commands:
       - echo Installing Maven...
-      - mvn -version
+      - mvn --version
   build:
     commands:
-      - echo Packaging JAR without tests...
-      - mvn clean package -DskipTests
-  post_build:
-    commands:
-      - echo Build completed on `date`
+      - echo Building the project and skipping tests...
+      - mvn clean package -DskipTests=true
 artifacts:
   files:
     - target/AWS-Deploy-Employee.jar
