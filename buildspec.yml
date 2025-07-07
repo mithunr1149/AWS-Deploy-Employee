@@ -5,10 +5,14 @@ phases:
     commands:
       - echo Installing Maven...
       - mvn --version
+
   build:
     commands:
       - echo Building the project and skipping tests...
       - mvn clean package -DskipTests=true
+      - echo "Listing contents of target directory:"
+      - ls -lh target/
+
 artifacts:
   files:
     - target/AWS-Deploy-Employee.jar
